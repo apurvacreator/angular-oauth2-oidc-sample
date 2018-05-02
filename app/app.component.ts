@@ -12,6 +12,8 @@ export class AppComponent {
 
         // URL of the SPA to redirect the user to after login
         this.oauthService.redirectUri = window.location.origin + "/index.html";
+        
+        this.oauthService.silentRefreshRedirectUri = window.location.origin + '/silent-refresh.html',
 
         // set the scope for the permissions the client should request
         this.oauthService.scope = "openid profile email flightapi_user";
@@ -26,6 +28,8 @@ export class AppComponent {
 
         this.oauthService.clientId = "angular-app-1";
         //this.oauthService.dummyClientSecret = "geheim";
+        
+        this.oauthService.setupAutomaticSilentRefresh();
 
         let url = 'https://hpg-keycloak.northeurope.cloudapp.azure.com/auth/realms/angular-spring/.well-known/openid-configuration';
         this.oauthService.loadDiscoveryDocument(url).then((doc) => {
