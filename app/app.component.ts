@@ -13,7 +13,9 @@ export class AppComponent {
         // URL of the SPA to redirect the user to after login
         this.oauthService.redirectUri = window.location.origin + "/index.html";
         
-        this.oauthService.silentRefreshRedirectUri = window.location.origin + '/silent-refresh.html',
+        this.oauthService.silentRefreshRedirectUri = window.location.origin + '/silent-refresh.html';
+            
+        this.oauthService.timeoutFactor =  0.10;
 
         // set the scope for the permissions the client should request
         this.oauthService.scope = "openid profile email flightapi_user";
